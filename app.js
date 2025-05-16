@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+import methodOverride from 'method-override';
 import{resolve} from 'path';
 import { engine } from 'express-handlebars';
 import { fileURLToPath } from 'url';
@@ -32,6 +33,8 @@ class App{
 
         //configurar pasta public 
         this.app.use(express.static(resolve(__dirname, 'public')));
+
+        this.app.use(methodOverride('_method'));// Configura o método de substituição para permitir PUT e DELETE via POST
     
         // Configurando o express para aceitar JSON e URL-encoded
         this.app.use(express.json());

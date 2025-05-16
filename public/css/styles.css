@@ -50,3 +50,71 @@
   background-color: #f4f4f4;
   overflow-y: auto;
 }
+
+
+.aluno-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.aluno-titulo {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.aluno-form {
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.aluno-form input[type="text"],
+.aluno-form input[type="email"],
+.aluno-form input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1 1 200px;
+}
+
+.aluno-form button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1 1 120px;
+}
+
+.aluno-form button:hover {
+  background-color: #0056b3;
+}
+
+.aluno-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.aluno-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.aluno-btn-excluir {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.aluno-btn-excluir:hover {
+  background-color: #a71d2a;
+}

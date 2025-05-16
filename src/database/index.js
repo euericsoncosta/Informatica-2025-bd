@@ -15,7 +15,7 @@ try {
   connection = new Sequelize(config);
 
   // Inicializa os modelos com a conexão
-  models.forEach((model) => model(connection));
+  models.forEach((model) => model.init(connection));
 
   // Faz as associações dos modelos, se existirem
   models.forEach((model) => {

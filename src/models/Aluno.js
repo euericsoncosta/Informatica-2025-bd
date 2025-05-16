@@ -1,40 +1,40 @@
-import { Model, DataTypes } from 'sequelize';
+import Sequelize, { Model } from 'sequelize';
 
-export default (sequelize) => {
-  class Aluno extends Model {
-    static associate(models) {
-      // associações aqui, se houver
-    }
+export default class Aluno extends Model {
+  static init(sequelize) {
+    super.init({
+      nome: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+      matricula: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      idade: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+    }, {
+      sequelize,
+      tableName: 'alunos',
+      modelName: 'Aluno',
+      timestamps: true,
+    });
+
+    return this;
   }
 
-  Aluno.init({
-    nome: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
-    matricula: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
-    },
-    idade: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    }
-  }, {
-    sequelize,
-    modelName: 'Aluno',
-    tableName: 'alunos',
-    timestamps: true
-  });
-
-  return Aluno;
-};
+  static associate(models) {
+    // Defina as associações aqui, se necessário
+  }
+}

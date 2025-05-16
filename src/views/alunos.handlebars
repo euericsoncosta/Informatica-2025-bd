@@ -1,2 +1,28 @@
-<h1>Bem-vindo à Home</h1>
-<p>Esta é a página inicial.</p>
+<div class="aluno-container">
+  <h2 class="aluno-titulo">Cadastrar Aluno</h2>
+
+  <form action="/alunos" method="POST" class="aluno-form">
+    <input type="text" name="nome" placeholder="Nome do aluno" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="text" name="matricula" placeholder="Matrícula" required />
+    <input type="number" name="idade" placeholder="Idade" required />
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h2 class="aluno-titulo">Lista de Alunos</h2>
+  <ul class="aluno-lista">
+    {{#each alunos}}
+      <li class="aluno-item">
+        <div>
+          <strong>Nome:</strong> {{this.nome}} |
+          <strong>Email:</strong> {{this.email}} |
+          <strong>Matrícula:</strong> {{this.matricula}} |
+          <strong>Idade:</strong> {{this.idade}}
+        </div>
+        <form action="/alunos/{{this.id}}?_method=DELETE" method="POST" class="aluno-form">
+          <button type="submit" class="aluno-btn-excluir">Excluir</button>
+        </form>
+      </li>
+    {{/each}}
+  </ul>
+</div>
