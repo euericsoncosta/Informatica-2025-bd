@@ -27,7 +27,7 @@ class App{
     middlewares(){
         //configurando o engine de template handlebars
          // Configura o Handlebars como motor de visualização
-        this.app.engine('handlebars', engine());
+        this.app.engine('handlebars', engine({ helpers: {json: (context) => JSON.stringify(context), }}));
         this.app.set('view engine', 'handlebars');
         this.app.set('views', resolve(__dirname,'src','views'));
 

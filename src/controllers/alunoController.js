@@ -47,7 +47,7 @@ class AlunoController {
         return res.status(404).json({ error: 'Aluno não encontrado.' });
       }
       await aluno.update(req.body);
-      res.redirec('/alunos');
+      res.redirect('/alunos');
     } catch (error) {
       res.status(400).json({ error: 'Erro ao atualizar aluno.', details: error.message });
     }

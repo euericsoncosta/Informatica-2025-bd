@@ -51,7 +51,7 @@
   overflow-y: auto;
 }
 
-
+/* pagina Alunos */
 .aluno-container {
   padding: 20px;
   background-color: #f9f9f9;
@@ -106,6 +106,17 @@
   flex-wrap: wrap;
 }
 
+.aluno-item div {
+  flex: 1 1 100%;
+  margin-bottom: 8px;
+}
+
+.aluno-item .aluno-acoes {
+  display: flex;
+  gap: 10px;
+}
+
+/* Botão Excluir */
 .aluno-btn-excluir {
   background-color: #dc3545;
   border: none;
@@ -117,4 +128,73 @@
 
 .aluno-btn-excluir:hover {
   background-color: #a71d2a;
+}
+
+/* Botão Editar */
+.aluno-btn-editar {
+  background-color: #ffc107;
+  border: none;
+  color: #333;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.aluno-btn-editar:hover {
+  background-color: #e0a800;
+}
+
+/* Modal */
+#modal-editar {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 300px;
+  border-radius: 8px;
+}
+
+#modal-editar h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+#modal-editar input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#modal-editar button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#modal-editar button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+#modal-editar button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+#modal-editar button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+#modal-editar button[type="button"]:hover {
+  background-color: #5a6268;
 }

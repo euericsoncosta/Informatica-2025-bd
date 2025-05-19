@@ -13,16 +13,62 @@
   <ul class="aluno-lista">
     {{#each alunos}}
       <li class="aluno-item">
-        <div>
-          <strong>Nome:</strong> {{this.nome}} |
-          <strong>Email:</strong> {{this.email}} |
-          <strong>Matrícula:</strong> {{this.matricula}} |
-          <strong>Idade:</strong> {{this.idade}}
-        </div>
-        <form action="/alunos/{{this.id}}?_method=DELETE" method="POST" class="aluno-form">
-          <button type="submit" class="aluno-btn-excluir">Excluir</button>
-        </form>
-      </li>
+        <li class="aluno-item">
+          <div>
+            <strong>Nome:</strong> {{this.nome}} |
+            <strong>Email:</strong> {{this.email}} |
+            <strong>Matrícula:</strong> {{this.matricula}} |
+            <strong>Idade:</strong> {{this.idade}}
+          </div>
+          <div class="aluno-acoes">
+            <form action="/alunos/{{this.id}}?_method=DELETE" method="POST" class="aluno-form">
+              <button type="submit" class="aluno-btn-excluir">Excluir</button>
+            </form>
+            <button onclick="abrirModalEditar({{@index}})" class="aluno-form aluno-btn-editar">Editar</button>
+          </div>
+
+        </li>
     {{/each}}
   </ul>
 </div>
+
+<!-- Sobreposição -->
+<div class="aluno-overlay" id="aluno-overlay" onclick="fecharModal()"></div>
+
+<!-- Modal de Edição -->
+<div id="modal-editar" class="aluno-modal">
+  <h3>Editar Aluno</h3>
+  <form id="form-editar" method="POST" class="aluno-form hidden">
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="text" name="nome" id="edit-nome" placeholder="Nome" required />
+    <input type="email" name="email" id="edit-email" placeholder="Email" required />
+    <input type="text" name="matricula" id="edit-matricula" placeholder="Matrícula" required />
+    <input type="number" name="idade" id="edit-idade" placeholder="Idade" required />
+    <button type="submit">Salvar</button>
+    <button type="button" onclick="fecharModal()">Cancelar</button>
+  </form>
+</div>
+
+<!-- Script para preencher e abrir o modal -->
+<script>
+  const alunos = {{{json alunos}}};
+
+  function abrirModalEditar(index) {
+    const aluno = alunos[index];
+    document.getElementById('edit-nome').value = aluno.nome;
+    document.getElementById('edit-email').value = aluno.email;
+    document.getElementById('edit-matricula').value = aluno.matricula;
+    document.getElementById('edit-idade').value = aluno.idade;
+
+    const form = document.getElementById('form-editar');
+    form.action = `/alunos/${aluno.id}?_method=PUT`;
+
+    document.getElementById('modal-editar').style.display = 'block';
+    document.getElementById('aluno-overlay').style.display = 'block';
+  }
+
+  function fecharModal() {
+    document.getElementById('modal-editar').style.display = 'none';
+    document.getElementById('aluno-overlay').style.display = 'none';
+  }
+</script>
