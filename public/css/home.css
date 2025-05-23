@@ -1,0 +1,192 @@
+ /* Estilos básicos para a página Home e o Card */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .home-titulo {
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .card-alunos-total {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px 50px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/* home.css */
+
+/* --- Container Principal da Página Home --- */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente na tela */
+  min-height: calc(100vh - 60px); /* Ajuste para ocupar a altura total da tela, descontando um possível header/footer */
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6; /* Um fundo suave */
+  color: #333;
+}
+
+/* --- Título da Página Home --- */
+.home-titulo {
+  font-size: 2.8em;
+  color: #2c3e50; /* Um azul escuro para o título */
+  margin-bottom: 50px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Card de Alunos Totais --- */
+.card-alunos-total {
+  background-color: #ffffff; /* Fundo branco para o card */
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada para profundidade */
+  margin-bottom: 60px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px; /* Largura máxima para o card */
+}
+
+.card-alunos-total:hover {
+  transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Título dentro do Card --- */
+.card-titulo {
+  font-size: 1.4em;
+  color: #555;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* --- Número de Alunos dentro do Card --- */
+.card-numero {
+  font-size: 4.5em; /* Número maior para destaque */
+  font-weight: bold;
+  color: #007bff; /* Azul vibrante */
+  animation: pulse 2s infinite; /* Adiciona uma leve animação */
+}
+
+/* --- Animação de Pulsar para o Número --- */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* --- Seção de Links da Home --- */
+.home-links {
+  display: flex;
+  gap: 25px; /* Espaçamento entre os botões */
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+  justify-content: center;
+}
+
+/* --- Botão de Gerenciar Alunos --- */
+.btn-alunos {
+  background-color: #28a745; /* Verde padrão para ações de sucesso */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.15em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-alunos:hover {
+  background-color: #218838; /* Verde mais escuro ao passar o mouse */
+  transform: translateY(-2px); /* Efeito de leve elevação */
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+  .home-titulo {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+  }
+
+  .card-alunos-total {
+    padding: 30px 40px;
+    max-width: 90%; /* Ocupa mais espaço em telas menores */
+  }
+
+  .card-numero {
+    font-size: 3.5em;
+  }
+
+  .home-links {
+    flex-direction: column; /* Botões empilhados em telas menores */
+    gap: 15px;
+  }
+
+  .btn-alunos {
+    width: 80%; /* Ocupa uma largura maior em telas menores */
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-titulo {
+    font-size: 1.8em;
+  }
+
+  .card-alunos-total {
+    padding: 25px 30px;
+  }
+
+  .card-numero {
+    font-size: 3em;
+  }
+
+  .btn-alunos {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
+    margin-bottom: 40px;
+  }
+
+  .card-titulo {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+
+  .card-numero {
+    font-size: 3em;
+    font-weight: bold;
+    color: #007bff; /* Cor azul para o número */
+  }
+
+  .home-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .btn-alunos {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-alunos:hover {
+    background-color: #218838;
+  }
