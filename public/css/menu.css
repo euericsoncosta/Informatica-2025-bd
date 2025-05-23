@@ -1,7 +1,29 @@
+/* home.css (ou o arquivo onde você colocou o CSS da home) */
+
+/* --- Container Principal da Página Home (AJUSTADO) --- */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente */
+  /* REMOVIDO: min-height: calc(100vh - 60px); - Isso será controlado pelo .content */
+  /* REMOVIDO: background-color: #f4f7f6; - Isso será controlado pelo .content */
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  width: 100%; /* Garante que o home-container ocupe toda a largura disponível no .content */
+  box-sizing: border-box; /* Inclui padding na largura */
+}
+
+/* O restante do CSS da home-titulo, card-alunos-total, etc. permanece o mesmo. */
+/* ... (Seu CSS anterior para home-titulo, card-alunos-total, card-titulo, card-numero, etc.) ... */
+
+/* --- Adicione estes estilos se ainda não tiver eles no seu CSS principal --- */
+
 /* Container principal usa flexbox */
 .container {
   display: flex;
-  height: 100vh;
+  height: 100vh; /* Garante que o container ocupe a altura total da viewport */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -12,6 +34,7 @@
   color: white;
   padding: 25px;
   box-sizing: border-box;
+  flex-shrink: 0; /* Evita que a sidebar encolha */
 }
 
 .sidebar-title {
@@ -43,10 +66,78 @@
   background-color: #34495e;
 }
 
-/* Área principal de conteúdo */
+/* Área principal de conteúdo (AJUSTADO) */
 .content {
-  flex-grow: 1;
+  flex-grow: 1; /* Ocupa todo o espaço restante */
   padding: 30px;
-  background-color: #f4f4f4;
-  overflow-y: auto;
+  background-color: #f4f7f6; /* Movido para cá para ser o fundo da área de conteúdo */
+  overflow-y: auto; /* Permite scroll se o conteúdo for muito grande */
+  display: flex; /* Adicionado flexbox para centralizar o home-container */
+  justify-content: center; /* Centraliza o home-container horizontalmente */
+  align-items: center; /* Centraliza o home-container verticalmente */
+  min-height: 100%; /* Garante que ele ocupe 100% da altura do pai (o .container) */
+  box-sizing: border-box; /* Inclui padding na altura/largura total */
+}
+
+/* --- Media Queries (Mantenha o que já tinha para a home e ajuste conforme necessário) --- */
+@media (max-width: 768px) {
+  .home-titulo {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+  }
+
+  .card-alunos-total {
+    padding: 30px 40px;
+    max-width: 90%;
+  }
+
+  .card-numero {
+    font-size: 3.5em;
+  }
+
+  .home-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-alunos {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  /* Ajustes para o layout principal em telas menores */
+  .container {
+    flex-direction: column; /* Sidebar e conteúdo empilhados */
+    height: auto; /* Altura automática */
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar ocupa toda a largura */
+    height: auto; /* Altura automática */
+    padding: 15px;
+  }
+
+  .content {
+    padding: 20px;
+    min-height: auto; /* Ajuste para não forçar altura mínima */
+  }
+}
+
+@media (max-width: 480px) {
+  .home-titulo {
+    font-size: 1.8em;
+  }
+
+  .card-alunos-total {
+    padding: 25px 30px;
+  }
+
+  .card-numero {
+    font-size: 3em;
+  }
+
+  .btn-alunos {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
 }
