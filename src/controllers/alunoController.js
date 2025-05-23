@@ -8,7 +8,7 @@ class AlunoController {
       console.log(alunos);
       res.render('alunos', { alunos });
     } catch (error) {
-      res.redirec('/alunos');
+      res.redirect('/alunos');
     }
   }
 
@@ -20,7 +20,7 @@ class AlunoController {
       if (!aluno) {
         return res.status(404).json({ error: 'Aluno não encontrado.' });
       }
-      res.redirec('/alunos');
+      res.redirect('/alunos');
     } catch (error) {
       res.status(500).json({ error: 'Erro ao buscar aluno.' });
     }
